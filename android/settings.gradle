@@ -1,0 +1,16 @@
+pluginManagement {
+    repositories {
+        // 使用阿里镜像（Google / Maven Central 在此环境不可直连）
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+    }
+}
+rootProject.name = "SuiXingDaoLan"
+include ':app'

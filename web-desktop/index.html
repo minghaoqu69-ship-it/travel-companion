@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>随行导览 · 电脑网页版（周边景点 / 酒店 / 攻略）</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 左侧栏 -->
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="logo">🧭</span>
+      <span class="title">随行导览 · 网页版</span>
+    </div>
+
+    <div class="search">
+      <input id="searchBox" type="text" placeholder="搜地点 / 景点 / 酒店，如：故宫、西湖、如家" />
+      <button id="searchBtn" title="搜索">🔍</button>
+    </div>
+
+    <div class="search-banner" id="searchBanner" hidden>
+      <span>🔍 搜索「<b class="sb-kw"></b>」找到 <b class="sb-n">0</b> 个地点</span>
+      <button class="sb-back" type="button">返回附近 ›</button>
+    </div>
+
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-type="scene">🏞️ 景点</button>
+      <button class="tab" data-type="food">🍜 美食</button>
+      <button class="tab" data-type="shop">🛍️ 商场</button>
+      <button class="tab" data-type="hotel">🏨 酒店</button>
+      <button class="tab" data-type="guide">📖 攻略</button>
+    </nav>
+
+    <div class="subbar">
+      <div class="filter" id="sceneFilter" hidden>
+        <button class="fbtn active" data-f="all">全部</button>
+        <button class="fbtn" data-f="free">🟢 免费</button>
+        <button class="fbtn" data-f="paid">🟠 收费</button>
+      </div>
+      <div class="legend">
+        <span><i class="dot free"></i>免费</span>
+        <span><i class="dot paid"></i>收费</span>
+        <span><i class="dot price"></i>人均</span>
+      </div>
+    </div>
+
+    <div class="list-head">
+      <span id="listTitle">附近景点</span>
+      <span id="listCount"></span>
+    </div>
+
+    <div class="list" id="list">
+      <div class="empty" id="emptyTip">正在定位并加载周边信息…</div>
+    </div>
+
+    <div class="side-foot">
+      <button id="locateBtn" class="foot-btn">📍 我的位置</button>
+      <button id="layerBtn" class="foot-btn">🌍 切换卫星图</button>
+    </div>
+
+    <!-- 我的行程（规划路线） -->
+    <div class="trip-panel" id="tripPanel" hidden>
+      <div class="trip-grip" id="tripGrip"><span class="trip-grip-bar"></span></div>
+      <div class="trip-head" id="tripHead">
+        <span class="trip-title">🧳 我的行程 <b id="tripCount">0</b></span>
+        <span class="trip-tools">
+          <button id="tripClear" title="清空">清空</button>
+          <button id="tripClose" title="收起">收起</button>
+        </span>
+      </div>
+      <div class="trip-body">
+        <ul class="trip-list" id="tripList"></ul>
+        <div class="trip-mode">
+          <label><input type="radio" name="tripMode" value="driving" checked> 🚗 驾车</label>
+          <label><input type="radio" name="tripMode" value="walking"> 🚶 步行</label>
+          <label><input type="radio" name="tripMode" value="transit"> 🚇 公交地铁</label>
+        </div>
+        <div class="trip-sum" id="tripSum"></div>
+        <button class="trip-go" id="tripGo">🧭 一键规划路线</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 右侧地图 -->
+  <main class="map-wrap">
+    <div id="map"></div>
+    <div class="notice" id="notice" hidden></div>
+    <button class="trip-fab" id="tripFab" hidden>🧳 我的行程 <b id="tripFabN">0</b></button>
+  </main>
+
+  <!-- 配置提示（无 key 时显示） -->
+  <div class="config-tip" id="configTip" hidden>
+    <div class="config-card">
+      <button class="config-close" id="configClose" title="关闭">×</button>
+      <h3>⚠️ 需要高德地图 Key</h3>
+      <p>地图能力依赖高德 JS API，请在 <code>app.js</code> 顶部填入你的 <b>Web端(JS API)</b> Key，并在高德控制台将该 Key 的「域名白名单」设为 <b>*</b>。</p>
+      <p class="small">申请地址：<a href="https://lbs.amap.com/" target="_blank" rel="noopener">https://lbs.amap.com/</a></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.suixing.daolan'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.suixing.daolan'
+        minSdk 21
+        targetSdk 34
+        versionCode 19
+        versionName '1.18'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig false
+    }
+}
+
+dependencies {
+    // WebView 属于 Android 框架，无需额外依赖
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>随行导览 · 周边景点酒店攻略</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 地图容器 -->
+  <div id="map"></div>
+
+  <!-- 顶部栏 -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🧭</span>
+      <span class="title">随行导览</span>
+    </div>
+    <div class="top-actions">
+      <button id="locateBtn" class="icon-btn" title="回到我的位置">📍</button>
+      <button id="layerBtn" class="icon-btn" title="切换图层">🌍</button>
+    </div>
+  </header>
+
+  <!-- 搜索地点 -->
+  <div class="searchbar">
+    <input id="searchBox" type="search" placeholder="搜地点 / 景点 / 酒店，如：故宫、西湖" />
+    <button id="searchBtn" title="搜索">🔍</button>
+  </div>
+
+  <!-- 分类切换 -->
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-type="scene">🏞️ 景点</button>
+    <button class="tab" data-type="food">🍜 美食</button>
+    <button class="tab" data-type="shop">🛍️ 商场</button>
+    <button class="tab" data-type="hotel">🏨 酒店</button>
+    <button class="tab" data-type="guide">📖 攻略</button>
+  </nav>
+
+  <!-- 结果列表（底部抽屉） -->
+  <section class="sheet" id="sheet">
+    <div class="sheet-handle" id="sheetHandle">
+      <span class="dot"></span>
+      <span class="sheet-title" id="sheetTitle">附近景点</span>
+      <span class="sheet-count" id="sheetCount"></span>
+    </div>
+    <div class="search-banner" id="searchBanner" hidden>
+      <span>🔍 搜索「<b class="sb-kw"></b>」找到 <b class="sb-n">0</b> 个地点</span>
+      <button class="sb-back" type="button">返回附近 ›</button>
+    </div>
+    <div class="sheet-body" id="sheetBody">
+      <div class="empty" id="emptyTip">正在定位并加载周边信息…</div>
+    </div>
+  </section>
+
+  <!-- 我的行程（规划路线）浮层 -->
+  <button class="trip-fab" id="tripFab" hidden>🧳 行程 <b id="tripFabN">0</b></button>
+  <div class="trip-panel" id="tripPanel" hidden>
+    <div class="trip-grip" id="tripGrip"><span class="trip-grip-bar"></span></div>
+    <div class="trip-head" id="tripHead">
+      <span class="trip-title">🧳 我的行程 <b id="tripCount">0</b></span>
+      <span class="trip-tools">
+        <button id="tripClear" title="清空">清空</button>
+        <button id="tripClose" title="收起">收起</button>
+      </span>
+    </div>
+    <div class="trip-body">
+      <ul class="trip-list" id="tripList"></ul>
+      <div class="trip-mode">
+        <label><input type="radio" name="tripMode" value="driving" checked> 🚗 驾车</label>
+        <label><input type="radio" name="tripMode" value="walking"> 🚶 步行</label>
+        <label><input type="radio" name="tripMode" value="transit"> 🚇 公交地铁</label>
+      </div>
+      <div class="trip-sum" id="tripSum"></div>
+      <button class="trip-go" id="tripGo">🧭 一键规划路线</button>
+    </div>
+  </div>
+
+  <!-- 配置提示（无 key 时显示） -->
+  <div class="config-tip" id="configTip" hidden>
+    <div class="config-card">
+      <button class="config-close" id="configClose" title="关闭">×</button>
+      <h3>⚠️ 需要高德地图 Key</h3>
+      <p>地图能力依赖高德 JS API，请在 <code>app.js</code> 顶部填入你的 <b>Web端(JS API)</b> Key，并在高德控制台将该 Key 的「域名白名单」设为 <b>*</b>（允许所有域名，供 WebView 使用）。</p>
+      <p class="small">申请地址：<a href="https://lbs.amap.com/" target="_blank" rel="noopener">https://lbs.amap.com/</a></p>
+    </div>
+  </div>
+
+  <!-- 高德 JS API 由 app.js 动态加载（Key 与安全密钥集中在 app.js 配置） -->
+  <script src="app.js"></script>
+</body>
+</html>

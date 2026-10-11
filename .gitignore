@@ -1,0 +1,43 @@
+# ===== Android =====
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+bin/
+gen/
+out/
+release/
+.gradle/
+local.properties
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+*.log
+.navigation/
+.cxx/
+
+# ===== Node =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ===== 构建产物 =====
+suixing-web.html
+android/app/src/main/assets/index.html
+android/app/src/main/assets/app.js
+android/app/src/main/assets/styles.css
+
+# ===== 编辑器 / 系统 =====
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# ===== 发布目录（含已编译 APK，不入库） =====
+publish-web/
+output/
