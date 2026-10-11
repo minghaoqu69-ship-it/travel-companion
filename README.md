@@ -1,4 +1,5 @@
 # 🧭 随行导览
+I am an elementary school student from mainland China. Using the AI ​​software "Workbuddy," I created an app called "Travel Companion Guide" (Suixing Daolan). I invite everyone to try it out and offer suggestions for improvement. Thank you all.【我是来自中国大陆的一名小学生，我使用workbuddy这款AI软件制作了名为随行导览的APP。欢迎大家来使用并提出改进，谢谢大家】
 
 > 走到哪里，就显示当地的景点、美食、酒店和攻略。
 > 一套代码，两种形态：**Android App**（WebView 壳 + H5）+ **电脑网页版**。
